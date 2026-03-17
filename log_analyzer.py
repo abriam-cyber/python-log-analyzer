@@ -24,8 +24,10 @@ def analyze_log(file_path):
     print("\nSuspicious IPs:")
     
     for ip, count in suspicious_ips.items():
-        if count >= 2:
-            print(f"{ip} - {count} failed attempts")
+    if count >= 3:
+        print(f"{ip} - {count} failed attempts (HIGH RISK)")
+    elif count >= 2:
+        print(f"{ip} - {count} failed attempts (MEDIUM RISK)")
 
 
 if __name__ == "__main__":
